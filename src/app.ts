@@ -351,6 +351,7 @@ const params = {
     console.error(Array.prototype.slice.call(text).join(' '));
   },
 };
-globalThis.fceux = FCEUX(params).then(() => {
-  globalThis.app = new App(globalThis.fceux, '#mycanvas');
+FCEUX(params).then(fceux => {
+  globalThis.fceux = fceux;
+  globalThis.app = new App(fceux, '#mycanvas');
 });

@@ -1,5 +1,11 @@
 # Changelog for em-fceux-site
 
+## [1.1.0] - 2020-10-03
+
+### Changed
+
+- Upgrade to em-fceux 2.0.0.
+
 ## [1.0.3] - 2020-05-25
 
 ### Added
