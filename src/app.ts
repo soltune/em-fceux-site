@@ -230,14 +230,14 @@ export class App {
         save[filename] = new Uint8Array(save[filename]);
       }
       this._fceux.importSaveFiles(save);
-
-      // Hide UI after timeout.
-      setTimeout(() => {
-        this._stack.show(false);
-        this.showControls(false);
-        this.showMenuContainer(false);
-      }, 1000);
     }
+
+    // Hide UI after timeout.
+    setTimeout(() => {
+      this._stack.show(false);
+      this.showControls(false);
+      this.showMenuContainer(false);
+    }, 1000);
   }
 
   private readFile(f: File | null) {
