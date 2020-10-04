@@ -59,7 +59,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   PLEASE ENABLE JAVASCRIPT em-fceux requires JavaScript
 </noscript>
 
-<input id="menuContainerToggle" type="checkbox" hidden />
+<input id="menuContainerToggle" type="checkbox" autocomplete="off" hidden/>
 <div id="playContainer">
   <div class="icon" id="burgerIcon" onclick="app.showMenuContainer(true)"></div>
 </div>
@@ -76,7 +76,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     </div>
   </div>
 
-  <input id="controllersToggle" type="checkbox" hidden />
+  <input id="controllersToggle" type="checkbox" autocomplete="off" hidden/>
   <div id="controllersTab">
     <div id="controllersContainer">
       <table id="controllers">
@@ -88,12 +88,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <tr><td>Gamma<td><input id="video-gamma" type="range" min="-1" max="1" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/>
 
         <tr><td colspan="2"><h4>NTSC EMULATION</h4>
-        <tr><td>NTSC Emulation*<td><input id="video-ntsc" type="checkbox" checked oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><label for="video-ntsc"></label>
+        <tr><td>NTSC Emulation*<td><input id="video-ntsc" type="checkbox" autocomplete="off" checked oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><label for="video-ntsc"></label>
         <tr><td>Sharpness<td><input id="video-sharpness" type="range" min="-0.5" max="0.5" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/>
         <tr><td>Signal Noise<td><input id="video-noise" type="range" min="0" max="1" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><br/>
 
         <tr><td colspan="2"><h4>TV EMULATION</h4>
-        <tr><td>TV Emulation<td><input id="video-tv" type="checkbox" checked oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><label for="video-tv"></label><br/>
+        <tr><td>TV Emulation<td><input id="video-tv" type="checkbox" autocomplete="off" checked oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><label for="video-tv"></label><br/>
         <tr><td>Scanlines<td><input id="video-scanlines" type="range" min="0" max="1" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><br/>
         <tr><td>Glow<td><input id="video-glow" type="range" min="0" max="1" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><br/>
         <tr><td>Convergence<td><input id="video-convergence" type="range" min="0" max="1" step="0.1" oninput="app.setConfig(this)" onchange="app.setConfig(this)"/><br/>
@@ -114,13 +114,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <div class="cartRow" id="cartProto" data-idx=""><div class="cart" onclick="return app.onClickCart(event, this.parentNode)"><div class="labelContainer"><div class="label"></div></div><div class="cartDelete" onclick="return app.onClickCartDelete(event, this.parentNode.parentNode);"></div></div></div>
     <input id="selectFile" type="file" onchange="app.handleSelectFile(this.files); this.value = ''">
   </div>
-  <input id="stackToggle" type="checkbox" hidden />
+  <input id="stackToggle" type="checkbox" autocomplete="off" hidden/>
   <div id="stackTab">
     <label id="stackToggleLabel" for="stackToggle"></label>
     <div id="stackContainer"><div id="stack"><div></div></div></div>
   </div>
 
-  <input id="helpToggle" type="checkbox" hidden />
+  <input id="helpToggle" type="checkbox" autocomplete="off" hidden/>
   <div class="icon" id="fullscreenIcon" onclick="app.toggleFullscreen()"></div>
   <div class="icon" id="soundIcon" onclick="app.toggleMuted()"></div>
   <label class="icon" id="helpIcon" for="helpToggle"></label>
