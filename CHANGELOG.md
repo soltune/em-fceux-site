@@ -1,5 +1,16 @@
 # Changelog for em-fceux-site
 
+## [1.1.1] - 2020-10-04
+
+### Changed
+
+- Simplify Apache htaccess file.
+
+### Fixed
+
+- Firefox checkbox autocomplete messed up app state.
+- Menus not hidden upon first play of a game.
+
 ## [1.1.0] - 2020-10-03
 
 ### Changed
