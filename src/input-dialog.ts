@@ -191,7 +191,7 @@ export class InputDialog {
   }
 
   private static formatKeys(keys: string[]) {
-    keys = keys.map(s => InputDialog.fixKey(s));
+    keys = keys.map((s) => InputDialog.fixKey(s));
     return keys && keys.length > 0 ? keys.join('+') : '(Unset)';
   }
 

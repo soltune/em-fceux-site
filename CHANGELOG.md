@@ -1,5 +1,11 @@
 # Changelog for em-fceux-site
 
+## [1.2.0] - 2022-06-01
+
+### Changed
+
+- Migrated to em-fceux 2.1.0 (FCEUX fork on github).
+
 ## [1.1.1] - 2020-10-04
 
 ### Changed

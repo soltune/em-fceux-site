@@ -221,15 +221,29 @@ export class App {
     this.readFile(files[0]);
   }
 
-  private handleGameLoaded() {
+  private handleGameLoaded(game_filename: string) {
     const md5 = this._fceux.gameMd5();
     if (md5 && localStorage.hasOwnProperty('save-' + md5)) {
       // Import saves from localStorage.
       const save = JSON.parse(localStorage['save-' + md5]);
+      const new_save = {}; // Resulting new saves.
+
+      // Backwards-compatibility: first rename and store the old 'rom.fc0'
+      // state files prefixing with new ROM filename. Then store possible new
+      // state files (overwriting the old ones).
       for (let filename in save) {
-        save[filename] = new Uint8Array(save[filename]);
+        if (filename.startsWith('rom')) {
+          const new_fn = game_filename.split('.').shift() + filename.substring(3);
+          new_save[new_fn] = new Uint8Array(save[filename]);
+        }
       }
-      this._fceux.importSaveFiles(save);
+      for (let filename in save) {
+        if (!filename.startsWith('rom')) {
+          new_save[filename] = new Uint8Array(save[filename]);
+        }
+      }
+
+      this._fceux.importSaveFiles(new_save);
     }
 
     // Hide UI after timeout.
@@ -246,7 +260,7 @@ export class App {
       r.onload = () => {
         const data = new Uint8Array(<ArrayBuffer>r.result);
         if (this._initialized) {
-          this._fceux.loadGame(data);
+          this._fceux.loadGame(data, f.name);
         }
         this._stack.addCart(f.name, data);
       };
@@ -298,7 +312,7 @@ export class App {
   toggleFullscreen() {
     if ('requestFullscreen' in this._canvas) {
       if (!document.fullscreenElement) {
-        this._canvas.requestFullscreen().catch(e => {
+        this._canvas.requestFullscreen().catch((e) => {
           console.warn("Can't enter fullscreen, " + e.message + '.');
         });
       } else {
@@ -351,7 +365,7 @@ const params = {
     console.error(Array.prototype.slice.call(text).join(' '));
   },
 };
-FCEUX(params).then(fceux => {
+FCEUX(params).then((fceux) => {
   globalThis.fceux = fceux;
   globalThis.app = new App(fceux, '#mycanvas');
 });

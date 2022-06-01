@@ -1,5 +1,3 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackDeployPlugin = require('html-webpack-deploy-plugin');
 
@@ -9,6 +7,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+  },
+  output: {
+    clean: true,
+  },
+  performance: {
+    hints: false,
   },
   module: {
     rules: [
@@ -20,7 +24,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'em-fceux',
       filename: 'index.html',
@@ -28,7 +31,7 @@ module.exports = {
     }),
     new HtmlWebpackDeployPlugin({
       assets: {
-        copy: [{ from: 'static', to: '..', ignore: ['.DS_Store'] }],
+        copy: [{ from: 'static', to: '..', globOptions: { ignore: ['.DS_Store'] } }],
       },
       packages: {
         'em-fceux': {

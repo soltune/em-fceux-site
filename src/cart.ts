@@ -75,7 +75,7 @@ export class Cart {
       fceux.downloadGame(this._url);
     } else {
       const games = Games.get();
-      fceux.loadGame(new Uint8Array(games[this._url]));
+      fceux.loadGame(new Uint8Array(games[this._url]), this._url.split('/').pop());
     }
   }
 }

@@ -6,7 +6,7 @@ Nintendo Entertainment System/Famicom (NES/FC) emulator on the web.
 
 Try it at https://tsone.kapsi.fi/em-fceux/.
 
-The emulator uses [em-fceux](https://bitbucket.org/tsone/em-fceux/), an
+The emulator uses [em-fceux](https://github.com/tsone/fceux/tree/master/src/drivers/em), an
 [Emscripten](http://emscripten.org) port of the [FCEUX](http://www.fceux.com/)
 emulator.
 
