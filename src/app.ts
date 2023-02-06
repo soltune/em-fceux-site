@@ -281,7 +281,7 @@ export class App {
   private storeConfig(id: string, v: string | number) {
     const x = isNaN(+v) ? v : +v;
     if (this._initialized) {
-      this._fceux.setConfig(id, x);
+      this._fceux.setConfig(id as any, x);
     }
     localStorage[id] = x;
   }

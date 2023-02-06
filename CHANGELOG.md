@@ -1,5 +1,11 @@
 # Changelog for em-fceux-site
 
+## [1.2.1] - 2023-02-06
+
+### Changed
+
+- Migrated to em-fceux 2.2.0.
+
 ## [1.2.0] - 2022-06-01
 
 ### Changed
