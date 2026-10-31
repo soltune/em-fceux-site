@@ -6,7 +6,7 @@ Nintendo Entertainment System/Famicom (NES/FC) emulator on the web.
 
 Try it at https://tsone.kapsi.fi/em-fceux/.
 
-The emulator uses [em-fceux](https://github.com/tsone/fceux/tree/emscripten/src/drivers/em), an
+The emulator uses [em-fceux](https://github.com/soltune/fceux/tree/emscripten/src/drivers/em), an
 [Emscripten](http://emscripten.org) port of the [FCEUX](http://www.fceux.com/)
 emulator.
 
@@ -15,12 +15,22 @@ emulator.
 Setup:
 
 1. Have [npm](https://www.npmjs.com/get-npm).
-2. Run `npm install`.
+2. Clone [FCEUX with em-fceux](https://github.com/soltune/fceux) to `../fceux`.
+   em-fceux is used from `../fceux/src/drivers/em` instead of the npm registry.
+3. Install [Emscripten](https://emscripten.org/docs/getting_started/downloads.html)
+   to `../emsdk`, or run `source emsdk_env.sh` before building.
+4. Run `npm install`.
 
-For development, run `npm start` to start `webpack-dev-server` at
-http://localhost:8080/.
+`FCEUX_DIR` and `EMSDK_DIR` environment variables override the default
+locations.
 
-For release, run `npm run build` to create a deployable site in `dist/`.
+For development, run `npm start` to build em-fceux and start
+`webpack-dev-server` at http://localhost:8080/. The dev server copies em-fceux
+only at startup, so restart it after rebuilding em-fceux with
+`npm run build:fceux`.
+
+For release, run `npm run build` to build em-fceux and create a deployable site
+in `dist/`.
 
 ## Browser Requirements
 

@@ -29,14 +29,14 @@
     "webgl"
   ],
   "scripts": {
-    "build": "npm run prettier && webpack --mode=production",
+    "build": "npm run build:fceux && npm run prettier && webpack --mode=production",
+    "build:fceux": "./scripts/build-fceux.sh",
     "clean": "rm -rf dist",
-    "dev:setup": "npm link ../fceux/src/drivers/em",
     "prettier": "prettier --print-width 80 --write *.md && prettier --write \"{,!(dist|node_modules)/**/}*.{ts,js,css}\"",
-    "start": "webpack-dev-server --mode=development"
+    "start": "npm run build:fceux && webpack-dev-server --mode=development"
   },
   "devDependencies": {
-    "em-fceux": "^2.2.0",
+    "em-fceux": "file:../fceux/src/drivers/em",
     "html-webpack-deploy-plugin": "^3.0.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.6.2",
